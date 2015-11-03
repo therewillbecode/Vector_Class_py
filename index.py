@@ -1,18 +1,34 @@
 __author__ = 'Tom'
 import math
 
+class Vector:
+    def __init__(self, arr):
+        self.array = arr
+        self.length = len(arr)
 
-def calculate(a, b):
-    return to_decimal(a) + to_decimal(b)
+    def __str__(self):
+        pass
+
+    def add(self, other):
+        if self.length != other.length:
+            raise AttributeError("Vector length not equal")
+
+    def subtract(self, other):
+        if self.length != other.length:
+            raise AttributeError("Vector length not equal")
+
+    def dot(self, other):
+        if self.length != other.length:
+            raise AttributeError("Vector length not equal")
+
+    def norm(self, other):
+        if self.length != other.length:
+            raise AttributeError("Vector length not equal")
 
 
-def to_decimal(a):
-    a = [int(i) for i in list(a)]
-    sum = 0
-    j = len(a)-1
-    for i in a:
-        if i == 1:
-            sum += math.pow(2, j)
-        j -= 1
-    return math.floor(sum)
+
+a = Vector([1, 2, 3])
+b = Vector([4, 5, 6])
+
+print(a.add(b))
 
