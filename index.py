@@ -7,11 +7,15 @@ class Vector:
         self.length = len(arr)
 
     def __str__(self):
-        pass
+        s = str(self.array)
+        s = str.replace(s, '[', '(')
+        s = str.replace(s, ']', ')')
+        return str(s).replace(" ", "")
 
     def add(self, other):
         if self.length != other.length:
             raise AttributeError("Vector length not equal")
+        return [sum(x) for x in zip(self.array, other.array)]
 
     def subtract(self, other):
         if self.length != other.length:
@@ -28,7 +32,8 @@ class Vector:
 
 
 a = Vector([1, 2, 3])
-b = Vector([4, 5, 6])
+b = Vector([3, 4, 5])
 
 print(a.add(b))
-
+print(a.array)
+print(a.add(b))

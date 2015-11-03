@@ -8,25 +8,30 @@ from index import a, b
 from index import Vector
 
 
-class Test__init__(unittest.TestCase):
+class __init__(unittest.TestCase):
     def test_length_property(self):
         self.assertEqual(a.length, 3)
 
-
-class Test__str__(unittest.TestCase):
+class __str__(unittest.TestCase):
     def test_(self):
-        self.assertEqual(a.length, 1)
+        self.assertEqual(str(a), '(1,2,3)')
 
-class Test_Add(unittest.TestCase):
+class Add(unittest.TestCase):
+    def test_returns_vector_object(self):
+        vec1 = a.add(a)
+        self.assertEqual(vec1.__class__.__name__, 'Vector')
+
+    def test_adds_properly(self):
+        vec2 = a.add(a)
+        self.assertEqual(vec2.array, [4, 6, 8])
+
+class Subtract(unittest.TestCase):
     pass
 
-class Test_Subtract(unittest.TestCase):
+
+class Norm(unittest.TestCase):
     pass
 
 
-class Test_Norm(unittest.TestCase):
-    pass
-
-
-class Test_Dot(unittest.TestCase):
+class Dot(unittest.TestCase):
     pass
