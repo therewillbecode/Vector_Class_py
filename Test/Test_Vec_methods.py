@@ -1,12 +1,13 @@
 __author__ = 'Tom'
 import unittest
 import sys
+import mock
 # Add the ptdraft folder path to the sys.path list
 sys.path.append('/Users/Tom/PycharmProjects/vector_class/Vector_Calc_py')
 
 from index import a, b
 from index import Vector
-
+unittest.mock
 
 class __init__(unittest.TestCase):
     def test_length_property(self):
@@ -17,13 +18,12 @@ class __str__(unittest.TestCase):
         self.assertEqual(str(a), '(1,2,3)')
 
 class Add(unittest.TestCase):
+
     def test_returns_vector_object(self):
-        vec1 = a.add(a)
-        self.assertEqual(vec1.__class__.__name__, 'Vector')
+        self.assertEqual(a.array, [4, 6, 8])
 
     def test_adds_properly(self):
-        vec2 = a.add(a)
-        self.assertEqual(vec2.array, [4, 6, 8])
+        self.assertEqual(a.__class__.__name__, 'Vector' )
 
 class Subtract(unittest.TestCase):
     pass
