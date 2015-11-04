@@ -6,9 +6,6 @@ class Vector:
         self.array = arr
         self.length = len(arr)
 
-    def __repr__(self):
-        return self.array
-
     def __str__(self):
         s = str(self.array)
         s = str.replace(s, '[', '(')
@@ -16,38 +13,37 @@ class Vector:
         return str(s).replace(" ", "")
 
     def equals(self, other):
-        return self.array == other.array
+        return self.__dict__ == other.__dict__
 
     def add(self, other):
         if self.length != other.length:
             raise AttributeError("Vector length not equal")
         self.array = [sum(x) for x in zip(self.array, other.array)]
-        print(Vector(self.array))
-        return Vector(self.array)
+        return self
 
     def subtract(self, other):
- #       print(self)
-  #      print(other)
+        print(self)
+        print(other)
         if self.length != other.length:
             raise AttributeError("Vector length not equal")
-        self.array = [(x1 - x2) for (x1, x2) in zip(self.array, other.array)]
-        b = Vector(self.array)
-#        print(b)
-        return b
+        c = [(x1 - x2) for (x1, x2) in zip(self.array, other.array)]
+        return Vector(c)
 
     def dot(self, other):
+        print(self)
+        print(other)
         if self.length != other.length:
             raise AttributeError("Vector length not equal")
-        self.array = sum([(x1 * x2) for (x1, x2) in zip(self.array, other.array)])
+        dot = sum([(x1 * x2) for (x1, x2) in zip(self.array, other.array)])
+        return dot
 
     def norm(self):
-        self.array = math.sqrt(sum([math.pow(x, 2) for x in self.array]))
-
-
+        nor = math.sqrt(sum([math.pow(x, 2) for x in self.array]))
+        return nor
 a = Vector([4, 6, 8])
 b = Vector([3, 4, 5])
 
-print(a.subtract(b))
-print(a.array)
-print(a)
+print('i')
+print(a.dot(b))
+print(a.subtract(b).equals(Vector([1,2,3])))
 
